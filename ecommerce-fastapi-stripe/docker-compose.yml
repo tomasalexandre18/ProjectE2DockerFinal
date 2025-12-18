@@ -1,0 +1,9 @@
+services:
+  fastapi-stripe:
+    restart: always
+    working_dir: /usr/src/app
+    expose:
+      - "5085"
+    volumes:
+      - /usr/src/app
+    build: .

@@ -1,0 +1,7 @@
+services:
+  html5up:
+    image: nginx:alpine-slim
+    volumes:
+      - ./massively:/usr/share/nginx/html
+    expose:
+      - "80"

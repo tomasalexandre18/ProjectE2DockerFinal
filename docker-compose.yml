@@ -1,28 +1,7 @@
-services:
-  django-soft:
-    build: django-soft-1766014025
-    image: sgttabasco/django-soft:latest
-    environment:
-      - APP_DOMAIN=django.docker.tomas18.com
-
-  fastapi-stripe:
-    build: ecommerce-fastapi-stripe
-    image: sgttabasco/fastapi-stripe:latest
-
-  flask-black:
-    build: flask-black-dashboard
-    image: sgttabasco/flask-black:latest
-    ports:
-      - "5000:5005"
-
-  nginx:
-    image: nginx:alpine-slim
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./html5up/massively:/usr/share/nginx/html
-    depends_on:
-      - django-soft
-      - fastapi-stripe
-      - flask-black
+include:
+  - html5up/docker-compose.yml
+  - nginx/docker-compose.yml
+  - django-soft-1766014025/docker-compose.yml
+  - ecommerce-fastapi-stripe/docker-compose.yml
+  - flask-black-dashboard/docker-compose.yml
+  - priv-rocket-ecommerce-main/docker-compose.yml

@@ -1,0 +1,9 @@
+services:
+  rocket-django:
+    restart: always
+    build: .
+    expose:
+      - "5005"
+    environment:
+      - STRIPE_SECRET_KEY=
+      - STRIPE_PUBLISHABLE_KEY=
