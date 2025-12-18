@@ -2,6 +2,8 @@ services:
   django-soft:
     build: django-soft-1766014025
     image: sgttabasco/django-soft:latest
+    environment:
+      - APP_DOMAIN=django.docker.tomas18.com
 
   fastapi-stripe:
     build: ecommerce-fastapi-stripe
