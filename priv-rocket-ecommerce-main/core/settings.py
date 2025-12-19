@@ -36,8 +36,9 @@ DEBUG = str2bool(os.environ.get('DEBUG'))
 # Hosts Settings
 ALLOWED_HOSTS = ['*']
 USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
-CSRF_TRUSTED_ORIGINS = ['http://docker.tomas18.com:5005']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+APP_DOMAIN = os.environ.get('APP_DOMAIN', None)
+CSRF_TRUSTED_ORIGINS = ['http://188.213.129.116:5005']
 
 # Used by DEBUG-Toolbar 
 INTERNAL_IPS = [

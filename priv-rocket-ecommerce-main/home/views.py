@@ -401,12 +401,21 @@ def create_checkout_session(request):
             'quantity': cart.quantity,
         })
 
+    domain_url = getattr(settings, 'APP_DOMAIN', None)
+    
+    if domain_url:
+        success_url = domain_url + reverse('payment_success') + '?session_id={CHECKOUT_SESSION_ID}'
+        cancel_url  = domain_url + reverse('payment_cancel')
+    else:
+        success_url = request.build_absolute_uri(reverse('payment_success')) + '?session_id={CHECKOUT_SESSION_ID}'
+        cancel_url  = request.build_absolute_uri(reverse('payment_cancel'))
+
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=line_items,
         mode='payment',
-        success_url=request.build_absolute_uri(reverse('payment_success')) + '?session_id={CHECKOUT_SESSION_ID}',
-        cancel_url = request.build_absolute_uri(reverse('payment_cancel'))
+        success_url=success_url,
+        cancel_url=cancel_url
     )
 
     return redirect(session.url)

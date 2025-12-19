@@ -2,6 +2,7 @@ services:
   rocket-django:
     restart: always
     build: .
+    image: sgttabasco/rocket-django:part-2
     expose:
       - "5005"
     environment:

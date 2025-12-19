@@ -2,5 +2,6 @@ services:
   flask-black-dashboard:
     restart: always
     build: .
+    image: sgttabasco/flask-black-dashboard:part-2
     expose:
       - "5085"

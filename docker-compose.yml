@@ -5,3 +5,4 @@ include:
   - ecommerce-fastapi-stripe/docker-compose.yml
   - flask-black-dashboard/docker-compose.yml
   - priv-rocket-ecommerce-main/docker-compose.yml
+  - Netdata/docker-compose.yaml

@@ -2,6 +2,7 @@ services:
   django-soft:
     restart: always
     build: .
+    image: sgttabasco/django-soft:part-2
     expose:
       - "5005"
     environment:
